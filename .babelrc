@@ -1,0 +1,15 @@
+{
+  "presets": [
+    ["env",{
+      "targets": {
+        "browsers": ["last 2 versions", "ie >= 11"]
+      }
+    }],
+    "stage-1",
+    "react"
+  ],
+  "plugins": [
+    "transform-decorators-legacy",
+    "react-hot-loader/babel"
+  ]
+}
