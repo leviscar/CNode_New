@@ -1,7 +1,7 @@
 {
-  "name": "cnode-proxy",
+  "name": "cNode",
   "version": "1.0.0",
-  "description": "Cnode Porxy",
+  "description": "cNode Porxy",
   "main": "index.js",
   "scripts": {
     "lint": "eslint --ext .js --ext .jsx client/",
@@ -16,11 +16,11 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://gongzheng0720@bitbucket.org/gongzheng0720/cnode-proxy.git"
+    "url": "https://github.com/leviscar/CNode_New.git"
   },
-  "author": "EricGong",
+  "author": "Leviscar",
   "license": "ISC",
-  "homepage": "https://bitbucket.org/gongzheng0720/cnode-proxy#readme",
+  "homepage": "",
   "dependencies": {
     "axios": "^0.18.0",
     "body-parser": "^1.18.2",

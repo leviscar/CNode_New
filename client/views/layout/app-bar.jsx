@@ -56,7 +56,7 @@ class NavBar extends React.Component {
               <HomeIcon />
             </IconButton>
             <Typography type="title" color="inherit" className={classes.flex}>
-              Cnode Proxy
+              Cnode
             </Typography>
             <Button color="inherit" onClick={this.onCreateTopicButtonClick}>Create Topic</Button>
             <Button color="inherit" onClick={this.onLoginButtonClick}>
