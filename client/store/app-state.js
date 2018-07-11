@@ -1,6 +1,7 @@
 import { observable, action, toJS } from 'mobx';
 import { post, get } from '../util/http';
 
+// 不需要在这里创建实例，另外有地方创建
 export default class AppState {
   @observable user={
     isLogin: false,
@@ -72,6 +73,9 @@ export default class AppState {
         });
     });
   }
+  // 用于解决服务端数据和客户端 store不同步的方法
+  // 服务端渲染得到的数据以json的格式传出
+  // 想办法把这部分数据放在客户端能拿到的地方
   toJson() {
     return {
       user: toJS(this.user),

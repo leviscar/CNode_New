@@ -10,6 +10,7 @@ const createMuiTheme = require('material-ui/styles').createMuiTheme
 const colors = require('material-ui/colors')
 
 const getStoreState = (stores) => {
+  // 服务端渲染结束后，store值的默认情况传出
   return Object.keys(stores).reduce((result, storeName) => {
     result[storeName] = stores[storeName].toJson()
     return result
@@ -39,13 +40,18 @@ module.exports = (bundle, template, req, res) => {
   return new Promise((resolve, reject) => {
     bootstrapper(app).then(() => {
       const content = ReactDomServer.renderToString(app)
+      // 在路由有redirect的情况下，routerContext.url是true，可以处理下面的逻辑
+      // 这个代码需要写在renderToString后面
       if (routerContext.url) {
+        // 重定向
         res.status(302).setHeader('Location', routerContext.url)
         res.end()
         return
       }
       const helmet = Helmet.rewind()
+      // 服务端渲染的store
       const state = getStoreState(stores)
+      // ejs引擎渲染后的html
       const html = ejs.render(template, {
         appString: content,
         initialState: serialize(state),
@@ -55,6 +61,7 @@ module.exports = (bundle, template, req, res) => {
         link: helmet.link.toString(),
         materialCss: sheetsRegistry.toString()
       })
+      // 服务端往浏览器端发送渲染好的html
       res.send(html)
       resolve()
     }).catch(reject)

@@ -8,6 +8,8 @@ export default {
   TopicStore,
 };
 
+// 专门用来给服务端渲染使用
+// 生成store
 export const createStoreMap = () => {
   return {
     appState: new AppState(),

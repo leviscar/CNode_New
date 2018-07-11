@@ -37,6 +37,7 @@ PrivateRoute.propTypes = {
   isLogin: PropTypes.bool,
   component: PropTypes.element.isRequired,
 };
+
 PrivateRoute.defaultProps = {
   isLogin: false,
 };
