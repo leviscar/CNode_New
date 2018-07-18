@@ -1,3 +1,4 @@
+// 用于处理与话题有关的数据
 import { observable, action, extendObservable, computed, toJS } from 'mobx';
 import { get, post } from '../util/http';
 import { topicSchema, replySchema } from '../util/variable-define';
@@ -9,11 +10,14 @@ const createTopic = (topic) => {
 const createReply = (topic) => {
   return Object.assign({}, replySchema, topic);
 };
-
+// 为了拓展更容易
 class Topic {
+  // 接受数据 初始化
   constructor(data) {
+    // 把data对象上面所有的属性都附加到this上面
     extendObservable(this, data);
   }
+  // 是否正在进行数据的请求
   @observable syncing = false;
   @observable createdReplies = [];
   @action doReply(content) {
@@ -60,6 +64,7 @@ export default class TopicStore {
       return result;
     }, {});
   }
+  // 获取topic数据
   @action fetchTopics(tab) {
     return new Promise((resolve, reject) => {
       if (tab === this.tab && this.topics.length > 0) {
@@ -69,6 +74,7 @@ export default class TopicStore {
         this.syncing = true;
         this.topics = [];
         get('/topics', {
+          // 告诉服务器要不要把字符串渲染成为markdown字符串
           mdrender: false,
           tab,
         }).then((resp) => {

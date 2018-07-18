@@ -2,12 +2,14 @@ const axios = require('axios');
 
 const baseUrl = process.env.API_BASE || '';
 
+// 处理URL的函数
 const parseUrl = (url, params) => {
   const paramsCopy = params || {};
   const str = Object.keys(paramsCopy).reduce((result, key) => {
     result += `${key}=${paramsCopy[key]}&`; //eslint-disable-line
     return result;
   }, '');
+  // 去掉最后一个&
   return `${baseUrl}/api${url}?${str.substr(0, str.length - 1)}`;
 };
 

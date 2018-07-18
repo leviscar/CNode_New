@@ -22,6 +22,7 @@ const styles = {
     appState: stores.appState,
   };
 })@observer
+
 class NavBar extends React.Component {
   static contextTypes = {
     router: PropTypes.object,

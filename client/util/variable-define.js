@@ -1,3 +1,4 @@
+// cnode api 返回 topic时包括的值
 export const topicSchema = {
   id: '',
   author_id: '',
