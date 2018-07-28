@@ -30,13 +30,22 @@ export const replySchema = {
   reply_id: null,
   is_uped: false,
 };
+// export const tabs = {
+//   all: 'All',
+//   share: 'Share',
+//   job: 'Job',
+//   ask: 'Q&A',
+//   good: 'Good',
+//   dev: 'Test',
+// };
+
 export const tabs = {
-  all: 'All',
-  share: 'Share',
-  job: 'Job',
-  ask: 'Q&A',
-  good: 'Good',
-  dev: 'Test',
+  all: '全部',
+  share: '分享',
+  job: '招聘',
+  ask: '问答',
+  good: '精华',
+  dev: '测试',
 };
 export default {
   replySchema,

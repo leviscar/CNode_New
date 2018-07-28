@@ -57,12 +57,12 @@ class NavBar extends React.Component {
               <HomeIcon />
             </IconButton>
             <Typography type="title" color="inherit" className={classes.flex}>
-              Cnode
+              刘俊鹏的Cnode小站
             </Typography>
-            <Button color="inherit" onClick={this.onCreateTopicButtonClick}>Create Topic</Button>
+            <Button color="inherit" onClick={this.onCreateTopicButtonClick}>话题创建</Button>
             <Button color="inherit" onClick={this.onLoginButtonClick}>
               {
-                user.isLogin ? user.info.loginname : 'Login'
+                user.isLogin ? user.info.loginname : '登录'
               }
             </Button>
           </ToolBar>
