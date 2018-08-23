@@ -11,56 +11,56 @@ import cx from 'classnames';
 import dateFormat from 'dateformat';
 
 const Primary = ({ classes, topic }) => {
-  const classNames = cx({
-    [classes.tab]: true,
-    [classes.top]: topic.top,
-  });
-  return (
-    <span className={classes.root}>
-      <span className={classNames}>{topic.top ? 'Top' : tabs[topic.tab]}</span>
-      <span className={classes.title}>{topic.title}</span>
-    </span>
-  );
+    const classNames = cx({
+        [classes.tab]: true,
+        [classes.top]: topic.top,
+    });
+    return (
+        <span className={classes.root}>
+            <span className={classNames}>{topic.top ? 'Top' : tabs[topic.tab]}</span>
+            <span className={classes.title}>{topic.title}</span>
+        </span>
+    );
 };
 
 Primary.propTypes = {
-  classes: PropTypes.object.isRequired,
-  topic: PropTypes.object.isRequired,
+    classes: PropTypes.object.isRequired,
+    topic: PropTypes.object.isRequired,
 };
 
 const StyledPrimary = withStyles(topicPrimaryStyle)(Primary);
 
 const Secondary = ({ classes, topic }) => (
-  <span className={classes.root}>
-    <span className={classes.userName}>{topic.author.loginname}</span>
-    <span className={classes.count}>
-      <span className={classes.replyCount}>Reply: {topic.reply_count}</span>
-      <span>Visiting: {topic.visit_count}</span>
+    <span className={classes.root}>
+        <span className={classes.userName}>{topic.author.loginname}</span>
+        <span className={classes.count}>
+            <span className={classes.replyCount}>Reply: {topic.reply_count}</span>
+            <span>Visiting: {topic.visit_count}</span>
+        </span>
+        <span>Date: {dateFormat(topic.create_at, 'yy-mm-dd')}</span>
     </span>
-    <span>Date: {dateFormat(topic.create_at, 'yy-mm-dd')}</span>
-  </span>
 );
 
 Secondary.propTypes = {
-  classes: PropTypes.object.isRequired,
-  topic: PropTypes.object.isRequired,
+    classes: PropTypes.object.isRequired,
+    topic: PropTypes.object.isRequired,
 };
 
 const StyledSecondary = withStyles(topicSecondaryStyle)(Secondary);
 
 const TopicListItem = ({ onClick, topic }) => (
-  <ListItem button onClick={onClick}>
-    <Avatar src={topic.author.avatar_url} />
-    <ListItemText
-      primary={<StyledPrimary topic={topic} />}
-      secondary={<StyledSecondary topic={topic} />}
-    />
-  </ListItem>
+    <ListItem button onClick={onClick}>
+        <Avatar src={topic.author.avatar_url} />
+        <ListItemText
+            primary={<StyledPrimary topic={topic} />}
+            secondary={<StyledSecondary topic={topic} />}
+        />
+    </ListItem>
 );
 
 TopicListItem.propTypes = {
-  onClick: PropTypes.func.isRequired,
-  topic: PropTypes.object.isRequired,
+    onClick: PropTypes.func.isRequired,
+    topic: PropTypes.object.isRequired,
 };
 
 export default TopicListItem;

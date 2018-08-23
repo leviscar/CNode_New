@@ -12,29 +12,29 @@ import { AppState, TopicStore } from './store/store';
 
 // 创建主题
 const theme = createMuiTheme({
-  palette: {
-    primary: blue,
-    secondary: pink,
-    type: 'light',
-  },
+    palette: {
+        primary: blue,
+        secondary: pink,
+        type: 'light',
+    },
 });
 
 const root = document.getElementById('root');
 const initialState = window.__INITIAL_STATE__ || {}; // eslint-disable-line
 const createApp = (TheApp) => {
-  class Main extends React.Component {
+    class Main extends React.Component {
     // Remove the server-side injected CSS.
-    componentDidMount() {
-      const jssStyles = document.getElementById('jss-server-side');
-      if (jssStyles && jssStyles.parentNode) {
-        jssStyles.parentNode.removeChild(jssStyles);
-      }
+        componentDidMount() {
+            const jssStyles = document.getElementById('jss-server-side');
+            if (jssStyles && jssStyles.parentNode) {
+                jssStyles.parentNode.removeChild(jssStyles);
+            }
+        }
+        render() {
+            return <TheApp />;
+        }
     }
-    render() {
-      return <TheApp />;
-    }
-  }
-  return Main;
+    return Main;
 };
 
 const appState = new AppState(initialState.appState);
@@ -43,27 +43,27 @@ const topicStore = new TopicStore(initialState.topicStore);
 
 // BrowserRouter 包含 Router才有用
 const render = (Component) => {
-  ReactDom.hydrate(
-    <AppContainer>
-      <Provider appState={appState} topicStore={topicStore}>
-        <BrowserRouter>
-          <MuiThemeProvider theme={theme}>
-            <Component />
-          </MuiThemeProvider>
-        </BrowserRouter>
-      </Provider>
-    </AppContainer>
-    ,
-    root,
-  );
+    ReactDom.hydrate(
+        <AppContainer>
+            <Provider appState={appState} topicStore={topicStore}>
+                <BrowserRouter>
+                    <MuiThemeProvider theme={theme}>
+                        <Component />
+                    </MuiThemeProvider>
+                </BrowserRouter>
+            </Provider>
+        </AppContainer>
+        ,
+        root,
+    );
 };
 
 render(createApp(App));
 
 // 配置热更新
 if (module.hot) {
-  module.hot.accept('./views/App', () => {
-    const NextApp = require('./views/App').default;
-    render(createApp(NextApp));
-  });
+    module.hot.accept('./views/App', () => {
+        const NextApp = require('./views/App').default;
+        render(createApp(NextApp));
+    });
 }

@@ -16,22 +16,22 @@ import { createStoreMap } from './store/store';
 useStaticRendering(true);
 
 export default (stores, routerContext, sheetsRegistry, generateClassName, theme, url) => (
-  // Provider的store在服务端渲染的时候重新生成
-  // 服务端渲染的时候会有不同的请求进来，我们不可能在不同请求时使用同一个store
-  // 一个store第一次请求的时候可能初始化一些数据了，而第二次请求的时候又初始化另一份数据
-  // 会造成数据的频繁更改，所以需要重新生成，从外面传入store
+    // Provider的store在服务端渲染的时候重新生成
+    // 服务端渲染的时候会有不同的请求进来，我们不可能在不同请求时使用同一个store
+    // 一个store第一次请求的时候可能初始化一些数据了，而第二次请求的时候又初始化另一份数据
+    // 会造成数据的频繁更改，所以需要重新生成，从外面传入store
 
-  // context 是服务端渲染的时候传给staticRouter的对象，静态渲染的时候对这个对象进行一些操作，返回给我们一些有用的信息
-  // localtion 是现在这个请求的url，从外面传入
-  <Provider {...stores}>
-    <StaticRouter context={routerContext} location={url}>
-      <JssProvider registry={sheetsRegistry} generateClassName={generateClassName}>
-        <MuiThemeProvider theme={theme} sheetsManager={new Map()}>
-          <App />
-        </MuiThemeProvider>
-      </JssProvider>
-    </StaticRouter>
-  </Provider>
+    // context 是服务端渲染的时候传给staticRouter的对象，静态渲染的时候对这个对象进行一些操作，返回给我们一些有用的信息
+    // localtion 是现在这个请求的url，从外面传入
+    <Provider {...stores}>
+        <StaticRouter context={routerContext} location={url}>
+            <JssProvider registry={sheetsRegistry} generateClassName={generateClassName}>
+                <MuiThemeProvider theme={theme} sheetsManager={new Map()}>
+                    <App />
+                </MuiThemeProvider>
+            </JssProvider>
+        </StaticRouter>
+    </Provider>
 );
 
 export { createStoreMap };

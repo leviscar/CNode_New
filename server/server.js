@@ -43,8 +43,8 @@ app.use('/api', require('./util/proxy'))
 
 if (!isDev) {
   const serverEntry = require('../dist/server-entry')
-  const template = fs.readFileSync(path.join(__dirname, '../dist/server.ejs'), 'utf8')//读成一个string
-  app.use('/public', express.static(path.join(__dirname, '../dist')))//区分是否是静态文件
+  const template = fs.readFileSync(path.join(__dirname, '../dist/server.ejs'), 'utf8')// 读成一个string
+  app.use('/public', express.static(path.join(__dirname, '../dist')))// 区分是否是静态文件
   app.get('*', function (req, res, next) {
     serverRender(serverEntry, template, req, res).catch(next)
   })

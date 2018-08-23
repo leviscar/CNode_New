@@ -8,22 +8,22 @@ import { withStyles } from 'material-ui/styles';
 import { replyStyle } from './styles';
 
 const Reply = ({ reply, classes }) => {
-  return (
-    <div className={classes.root}>
-      <div className={classes.left}>
-        <Avatar src={reply.author.avatar_url} />
-      </div>
-      <div className={classes.right}>
-        <span>{`${reply.author.loginname} ${dateFormat(reply.create_at, 'yy-mm-dd')}`}</span>
-        <p dangerouslySetInnerHTML={{ __html: marked(reply.content) }} />
-      </div>
-    </div>
-  );
+    return (
+      <div className={classes.root}>
+            <div className={classes.left}>
+                <Avatar src={reply.author.avatar_url} />
+            </div>
+            <div className={classes.right}>
+                <span>{`${reply.author.loginname} ${dateFormat(reply.create_at, 'yy-mm-dd')}`}</span>
+                <p dangerouslySetInnerHTML={{ __html: marked(reply.content) }} />
+            </div>
+        </div>
+    );
 };
 
 Reply.propTypes = {
-  reply: PropTypes.object.isRequired,
-  classes: PropTypes.object.isRequired,
+    reply: PropTypes.object.isRequired,
+    classes: PropTypes.object.isRequired,
 };
 
 export default withStyles(replyStyle)(Reply);
