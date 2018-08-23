@@ -21,6 +21,15 @@
     "prefer-promise-reject-errors":[0],
     "max-len":[0],
     "no-param-reassign":[0],
-    "react/no-danger":[0]
+    "react/no-danger":[0],
+    "indent": [
+            "error",
+            4
+        ],
+    "react/jsx-indent": [
+        "warning",
+        4
+    ],
+    "eol-last": ["error", "always"]
   }
 }

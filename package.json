@@ -6,7 +6,6 @@
   "scripts": {
     "lint": "eslint --ext .js --ext .jsx client/",
     "precommit": "npm run lint",
-    "testBuild": "webpack --mode development --config build/webpack.config.js",
     "build:client": "webpack --mode development --config build/webpack.config.client.js",
     "build:server": "webpack --mode development --config build/webpack.config.server.js",
     "clear": "rimraf dist",
