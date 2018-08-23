@@ -9,7 +9,7 @@ import { replyStyle } from './styles';
 
 const Reply = ({ reply, classes }) => {
     return (
-      <div className={classes.root}>
+        <div className={classes.root}>
             <div className={classes.left}>
                 <Avatar src={reply.author.avatar_url} />
             </div>

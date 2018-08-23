@@ -4,13 +4,13 @@ import Routes from '../config/router';
 import NavBar from './layout/app-bar';
 
 export default class App extends React.Component {
-  componentDidMount() {
+    componentDidMount() {
     // do something
-  }
-  render() {
-    return [
-      <NavBar key="appBar" />,
-      <Routes key="router" />,
-    ];
-  }
+    }
+    render() {
+        return [
+            <NavBar key="appBar" />,
+            <Routes key="router" />,
+        ];
+    }
 }
