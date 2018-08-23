@@ -2,8 +2,8 @@ const path = require('path')
 
 module.exports = {
     output: {
-        path: path.join(__dirname, '../dist') // 打包出来的文件的存放位置
-    // publicPath: '/public/'// 区分url是静态资源还是其他需要特殊处理的请求，使用CDN的时候替换成CDN的域名就可以直接使用
+        path: path.join(__dirname, '../dist'), // 打包出来的文件的存放位置
+        publicPath: '/public/'// 区分url是静态资源还是其他需要特殊处理的请求，使用CDN的时候替换成CDN的域名就可以直接使用
     },
     // 配置使其可以不用使用 .js 以及 .jsx的后缀名
     resolve: {

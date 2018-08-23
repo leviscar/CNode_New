@@ -32,7 +32,7 @@ if (isDev) {
         ]
     }
     config.devServer = {
-        host: '0.0.0.0',
+        host: '127.0.0.1',
         port: '8888',
         //  用于告诉服务器文件的根目录。这主要用来需要引用静态文件的时候。devServer.publicPath被用来规定变异文件的路径地址
         contentBase: path.join(__dirname, '../dist'),
@@ -40,14 +40,14 @@ if (isDev) {
         open: true,
         overlay: { // 用于在浏览器输出编译错误的，默认是关闭的，需要手动打开
             errors: true
+        },
+        publicPath: '/public/',
+        historyApiFallback: { // 这个配置属性是用来应对返回404页面时定向到特定页面用的
+            index: '/public/index.html'
         }
-    // publicPath: '/public/',
-    // historyApiFallback: { // 这个配置属性是用来应对返回404页面时定向到特定页面用的
-    //   index: '/public/index.html'
-    // },
-    // proxy: {
-    //   '/api': 'http://localhost:3333'
-    // }
+        // proxy: {
+        //     '/api': 'http://localhost:3333'
+        // }
     }
     config.plugins.push(new webpack.SourceMapDevToolPlugin(), new webpack.HotModuleReplacementPlugin())
 }

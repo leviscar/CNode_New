@@ -1,4 +1,5 @@
 import React from 'react';
+import Routes from '../config/router';
 
 export default class Main extends React.Component {
     componentDidMount() {
@@ -7,7 +8,8 @@ export default class Main extends React.Component {
 
     render() {
         return (
-            <div> <h1>hello react</h1></div>
+            <Routes key="router" />
+            // <input type="text" value="1111" />
         );
     }
 }
