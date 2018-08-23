@@ -1,13 +1,13 @@
 import React from 'react';
 
-export default class App extends React.Component {
+export default class Main extends React.Component {
     componentDidMount() {
         // do something
     }
 
     render() {
         return (
-            <div>hello</div>
+            <div> <h1>hello react</h1></div>
         );
     }
 }
