@@ -2,5 +2,5 @@ apps:
   - script: ./server/server.js
     name: cnode
     env_production:
-      NODE_ENV: production
+      NODE_ENV: product
       HOST: localhost

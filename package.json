@@ -5,14 +5,13 @@
   "main": "index.js",
   "scripts": {
     "lint": "eslint --ext .js --ext .jsx client/",
-    "precommit": "npm run lint",
     "build:client": "webpack --mode development --config build/webpack.config.client.js",
     "build:server": "webpack --mode development --config build/webpack.config.server.js",
     "clear": "rimraf dist",
     "build": "npm run clear && npm run build:client && npm run build:server",
     "dev:server": "nodemon server/server.js",
     "dev:client": "cross-env NODE_ENV=development webpack-dev-server --mode development --config build/webpack.config.client.js",
-    "start": "cross-env NODE_ENV=production node server/server.js"
+    "start": "cross-env NODE_ENV=product node server/server.js"
   },
   "repository": {
     "type": "git",
