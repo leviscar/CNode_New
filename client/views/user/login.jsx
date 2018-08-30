@@ -24,7 +24,7 @@ class UserLogin extends React.Component {
   constructor() {
       super();
       this.state = {
-          accesstoken: '58ec7d39da8344a81eee0c14',
+          accesstoken: '5ecdca0d-0e09-4b22-b96a-6fbd6967e15e',
           helpText: '',
       };
       this.handleInput = this.handleInput.bind(this);
